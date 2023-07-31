@@ -13,4 +13,8 @@ Python:
 
 Pure Data:
 
-- [mrpeach](https://github.com/pd-externals/mrpeach) - download the library from the "Find Externals" tab in PD.
+- [mrpeach](https://github.com/pd-externals/mrpeach) - Download the library from the "Find Externals" tab in PD.
+
+# How To Run
+
+...
