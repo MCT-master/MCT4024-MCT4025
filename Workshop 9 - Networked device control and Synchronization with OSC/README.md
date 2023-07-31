@@ -9,13 +9,18 @@ The goal is to learn more about how to set up and configure advanced techologies
 Python:
 
 - [python-osc](https://github.com/attwad/python-osc) - [Documentation](https://python-osc.readthedocs.io/en/latest/)
-- ..
+- ...
 
 Pure Data:
 
 - [mrpeach](https://github.com/pd-externals/mrpeach) - Download the library from the "Find Externals" tab in PD.
 
 ## How To Run
+
+Python
+
+1. ....
+2.
 
 ... make sure you have python as global variable (run python from command line)
 
