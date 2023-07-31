@@ -3,14 +3,16 @@ from pythonosc import osc_message_builder
 from pythonosc import udp_client
 import time
 
+# Send 10 OSC frames (bundles) to a remote client
+
 ip = '127.0.0.1'
-sendPort = 7000  # 7000 is python server, 8000 is PD client
+remotePort = 7000  # 7000 is python server, 8000 is PD client
 send_address = "/pd/1"
 
 # create a osc client for sending messages
-client = udp_client.SimpleUDPClient(ip, sendPort)
+client = udp_client.SimpleUDPClient(ip, remotePort)
 
-# send 10 OSC bundles with rising number to sendPort
+# send 10 OSC bundles with varying values to remotePort
 for i in range(10):
     # open a OSC bundle
     bundle = osc_bundle_builder.OscBundleBuilder(
