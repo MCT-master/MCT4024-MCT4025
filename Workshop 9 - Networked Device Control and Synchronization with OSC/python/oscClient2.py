@@ -14,6 +14,7 @@ def receiveMessages(dispatcher):
 
     def printMess(address: str, *args: List[Any]) -> None:
         print(f'oscClient1.py playing {args}')
+        # play the tick audio file from the root dir
         playsound("./python/tick.wav")
 
     dispatcher = dispatcher.Dispatcher()

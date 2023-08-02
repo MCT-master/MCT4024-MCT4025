@@ -13,6 +13,7 @@
 #X msg 79 377 connect localhost 7001;
 #X obj 37 133 metro 1000;
 #X text 219 505 set up PD audio player and logice here \, just to show;
+#X text 222 546 AND!!! check if its sync when playing at the same time.;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
