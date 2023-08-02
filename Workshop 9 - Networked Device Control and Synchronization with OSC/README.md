@@ -6,24 +6,27 @@ The goal is to learn more about how to set up and configure advanced techologies
 
 ## Dependencies
 
-Python:
+In python:
 
-- [python-osc](https://github.com/attwad/python-osc) - [Documentation](https://python-osc.readthedocs.io/en/latest/)
-- ...
+```
+pip install playsound==1.2.2
+pip install python-osc
+```
 
-Pure Data:
+In Pure Data, install the [mrpeach](https://github.com/pd-externals/mrpeach) library from the "Find Externals".
 
-- [mrpeach](https://github.com/pd-externals/mrpeach) - Download the library from the "Find Externals" tab in PD.
+## Examples
 
-## How To Run
+with diagrams
 
-Python
+Example 1 - Connection (from pd to py to pd)
+Example 2 - Metronome control (from pd to py)
+Example 3 - Timetag manipulation (from py to pd)
 
-1. ....
-2.
+# Activity
 
-... make sure you have python as global variable (run python from command line)
-
-## Activity
+1. connect together.
+2. use audio.
+3. forward syncronization!
 
 ## Additional Resources

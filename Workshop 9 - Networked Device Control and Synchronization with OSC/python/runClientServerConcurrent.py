@@ -2,10 +2,10 @@ import threading
 import time
 import os
 
-# run a python OSC server and a client, in parallel, on the same WINDOWS machine.
+# run the python OSC server and a client in parallel, using threads.
 # enter the filenames of server and client you wish to run:
 serverFile = "oscServer.py"
-clientFile = "oscClient1.py"
+clientFile = "oscClient2.py"
 shellComand = f'python ./python/'
 
 if __name__ == "__main__":

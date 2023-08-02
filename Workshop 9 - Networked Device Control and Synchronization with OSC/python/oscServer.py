@@ -3,32 +3,38 @@ from pythonosc import dispatcher
 from pythonosc import osc_server
 from typing import List, Any
 
-# a simple local OSC server that forwards received messages to a remote client.
+# a simple OSC threading server that listens to OSC
+# messages on serverIp and port and simply forwards
+# incoming messages to remote clients.
 
-# the local IP and port are for our server, while the remote IP and port are configured
-# on the receiving end (in the PD patch)
-localIP = '127.0.0.1'
-localPort = 7000
-remoteIP = '127.0.0.1'
-remotePort = 8000
+ip = '127.0.0.1'
+serverPort = 7001
+pdPort = 8888
+pyPort = 8889
 
-# create a OSC client where we will send messages to
-client = udp_client.SimpleUDPClient(remoteIP, remotePort)
-
-
-def sendToClient(address: str, *args: List[Any]) -> None:
-    # Takes an OSC address and values and sends them to the remoteIP and port specified.
-    print(f'sending {args} to {address}')
-    client.send_message(address, args)
+# create a OSC clients to pd and python
+pdClient = udp_client.SimpleUDPClient(ip, pdPort)
+pyClient = udp_client.SimpleUDPClient(ip, pyPort)
 
 
-# the dispatch function catches OSC messages with a specific address and pass them to a specific function.
+def sendToPd(address: str, *args: List[Any]) -> None:
+    # print(f'sending {args} to /pd')
+    pdClient.send_message(address, args)
+
+
+def sendToPy(address: str, *args: List[Any]) -> None:
+    # print(f'sending {args} to python')
+    pyClient.send_message(address, args)
+
+
+# setup a dispatch to catch OSC messages with a specific address and pass them to a specific functions.
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/pd*", sendToClient)
+dispatcher.map("/pd*", sendToPd)
+dispatcher.map("/py*", sendToPy)
 
-# here we define a simple OSC threading server to listen for OSC messages in parallell
-server = osc_server.ThreadingOSCUDPServer((localIP, localPort), dispatcher)
-print(f'serving on {server.server_address}.')
+# here we define a simple OSC threading server to listen for OSC messages in paralell
+server = osc_server.ThreadingOSCUDPServer((ip, serverPort), dispatcher)
+print(f'oscServer.py serving on {server.server_address}.')
 
 # we "execute" our server "forever" (until ctrl+c)
 server.serve_forever()
