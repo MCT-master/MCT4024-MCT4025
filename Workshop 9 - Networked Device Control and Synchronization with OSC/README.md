@@ -17,14 +17,12 @@ pip install python-osc
 
 # Workshop Activities
 
-In the repo, there are 3 examples of how we can network OSC between Python and Pure Data.
-
-leading up to the final workshop activity. All examples network OSC between Python and Pure Data files using localhost. Let's start with example 1.
+In the repo, there are 3 examples we will follow, each consisting of a multitude of files and a small student activity. The examples show how we can start to build complex OSC communication systems for audio systems using Python and Pure Data.
 
 ### Example 1 - Connection (from pd to py to pd)
 
 What does it show.
-How to run?
+How to run? files included.
 diagram
 Activity: ---
 
