@@ -17,20 +17,20 @@ pdClient = udp_client.SimpleUDPClient(ip, pdPort)
 pyClient = udp_client.SimpleUDPClient(ip, pyPort)
 
 
-def sendToPd(address: str, *args: List[Any]) -> None:
+def forwardToPd(address: str, *args: List[Any]) -> None:
     # print(f'sending {args} to /pd')
     pdClient.send_message(address, args)
 
 
-def sendToPy(address: str, *args: List[Any]) -> None:
+def forwardToPy(address: str, *args: List[Any]) -> None:
     # print(f'sending {args} to python')
     pyClient.send_message(address, args)
 
 
 # setup a dispatch to catch OSC messages with a specific address and pass them to a specific functions.
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/pd*", sendToPd)
-dispatcher.map("/py*", sendToPy)
+dispatcher.map("/pd*", forwardToPd)
+dispatcher.map("/py*", forwardToPy)
 
 # here we define a simple OSC threading server to listen for OSC messages in paralell
 server = osc_server.ThreadingOSCUDPServer((ip, serverPort), dispatcher)
