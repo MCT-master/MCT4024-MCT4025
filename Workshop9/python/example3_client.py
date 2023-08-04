@@ -56,7 +56,7 @@ def sendMessages(client):
         date = datetime.utcnow()
         utc_timestamp = calendar.timegm(date.utctimetuple())
 
-        # open a OSC bundle
+        # open a OSC bundle and use the "custom" UTC timestamp instead of IMMEDIATLY
         bundle = osc_bundle_builder.OscBundleBuilder(utc_timestamp)
 
         # create a message with an OSC address

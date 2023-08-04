@@ -70,7 +70,7 @@ def sendMessages(client):
         # send the bundle to remote client
         client.send(bundle)
 
-        # One every second
+        # One frame every second
         time.sleep(1)
 
 

@@ -1,6 +1,6 @@
 # Networked Device Control and Synchronization With OSC
 
-Today, we will continue to explore synchronous online musical collaboration, this time through code. The students will learn how to use OSC timetags, in Pure Data and Python, to synchronize and control audio in networked contexts.
+Today, we will continue to explore synchronous online musical collaboration, but this time using Pure Data and Python. The students will learn how to use OSC timetags to synchronize and control audio in networked contexts.
 
 The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration.
 
@@ -17,7 +17,7 @@ pip install python-osc
 
 # Workshop Examples
 
-The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example together and do some activities to explore our possibilities.
+The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example and do some activities together.
 
 ### Example 1 - Connection
 
@@ -31,6 +31,10 @@ Activity: ---
 ...
 
 ### Example 3 - Custom Timetagging
+
+python-osc delays OSC messages via timetag by itself.
+
+If manipulate the dispatcher.py source code. lines 41, 59 and 200. add the timed_msg.time to arguments.
 
 ...
 Activity - Design Forward Synchronization system
