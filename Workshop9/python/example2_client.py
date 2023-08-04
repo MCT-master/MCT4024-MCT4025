@@ -13,9 +13,12 @@ from playsound import playsound
 # A 2-way client that sends some tick pulses to PD that control a metronome and
 # then starts a server that receives tick pulses from pd that control a metronome here.
 
-ip = '127.0.0.1'
-serverPort = 7001
-clientPort = 8888
+clientIp = '129.240.238.21'  # remote ip
+clientPort = 30002
+
+serverIp = '129.240.79.193'  # local ip
+serverPort = 30001
+
 
 # find the absolute path to the audio file tick.wav.
 path = pathlib.Path(__file__).parent.resolve()
@@ -37,8 +40,8 @@ dispatcher.map("/py*", pyOscHandler)
 
 def startClient(ip, port):
     # create a simple OSC client
-    print("Starting example2_client.")
     client = udp_client.SimpleUDPClient(ip, port)
+    print(f'Starting client on {ip}, port {port}.')
 
     # Send messages from our client in a paralell thread
     thread = threading.Thread(target=sendMessages(client))
@@ -50,6 +53,7 @@ def sendMessages(client):
     message = "tick"
     osc_address = "/pd"
 
+    print("sending messages..")
     for i in range(10):
         # open a OSC bundle
         bundle = osc_bundle_builder.OscBundleBuilder(
@@ -72,22 +76,21 @@ def sendMessages(client):
 
         # One frame every second
         time.sleep(1)
+    
+    print("done sending.")
 
 
 def startServer(ip, port):
     # receive messages from clients (with "/py as OSC address").
-    print("Starting Server.")
-
     # A simple OSC threading server to listen for OSC messages
     server = osc_server.ThreadingOSCUDPServer((ip, port), dispatcher)
     print(
-        f'Serving on {server.server_address[0]}, port {server.server_address[1]}.')
+        f'Starting server on {server.server_address[0]}, port {server.server_address[1]}.')
 
     # Start our server in a paralell thread
     thread = threading.Thread(target=server.serve_forever)
     thread.start()
 
-
 # run our code.
-startServer(ip, serverPort)
-startClient(ip, clientPort)
+startServer(serverIp, serverPort)
+startClient(clientIp, clientPort)
