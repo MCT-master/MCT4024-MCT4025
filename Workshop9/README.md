@@ -15,9 +15,9 @@ pip install python-osc
 
 - In Pure Data, install the [mrpeach](https://github.com/pd-externals/mrpeach) library from the "Find Externals".
 
-# Workshop Activities
+# Workshop Examples
 
-The repo has 3 examples, each consisting of a PD and Python file. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. In class, we will go through each example together and do some activities to explore our possibilities.
+The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example together and do some activities to explore our possibilities.
 
 ### Example 1 - Connection
 
