@@ -1,6 +1,6 @@
 # Networked Device Control and Synchronization With OSC
 
-Today, we will continue to explore synchronous online musical collaboration, this time through code. The students will learn how to use OSC timetags to synchronize and control audio in networked contexts, using Pure Data and Python.
+Today, we will continue to explore synchronous online musical collaboration, this time through code. The students will learn how to use OSC timetags, in Pure Data and Python, to synchronize and control audio in networked contexts.
 
 The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration.
 
