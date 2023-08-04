@@ -17,20 +17,20 @@ pip install python-osc
 
 # Workshop Activities
 
-In the repo, there are 3 examples we will follow, each consisting of a multitude of files and a small student activity. The examples show how we can start to build complex OSC communication systems for audio systems using Python and Pure Data.
+In the repo, there are 3 examples, each consisting of a PD and Python file. The examples show how we can start to build complex OSC communication systems for audio. In class, we will go through each example together and do some activities to explore our possibilities.
 
-### Example 1 - Connection (from pd to py to pd)
+### Example 1 - Connection
 
 What does it show.
 How to run? files included.
 diagram
 Activity: ---
 
-### Example 2 - Metronome control (from pd to py)
+### Example 2 - Temporal Audio Control
 
 ...
 
-### Example 3 - Timetag manipulation (from py to pd)
+### Example 3 - Custom Timetagging
 
 ...
 Activity - Design Forward Syncronization system
