@@ -11,14 +11,17 @@ import calendar
 import pathlib
 import time
 
-# A 2-way client that sends tick pulses with manipulated timetags(!) to PD for metronome control
-# before it starts a server that receives tick pulses with manipulated timetags(!) from pd for metronome control.
+"""
+A 2-way client that sends tick pulses with manipulated timetags(!) to PD for metronome control before it starts a server that receives tick pulses with manipulated timetags(!) from pd for metronome control.
+"""
 
 clientIp = '129.240.238.21'  # remote ip
-clientPort = 30002
+# clientIp = '129.240.238.20'  # remote ip
+clientPort = 61002
 
-serverIp = '129.240.79.193'  # local ip
-serverPort = 30001
+serverIp = '129.240.238.21'  # local ip
+# serverIp = '129.240.238.20'  # local ip
+serverPort = 61001
 
 
 # find the absolute path to the audio file tick.wav.
@@ -79,8 +82,8 @@ def sendMessages(client):
         client.send(bundle)
 
         # One frame every second
-        time.sleep(1)
-    
+        time.sleep(0.5)
+
     print("done sending...")
 
 
@@ -97,5 +100,5 @@ def startServer(ip, port):
 
 
 # run our code.
-startServer(serverIp, serverPort)
+# startServer(serverIp, serverPort)
 startClient(clientIp, clientPort)

@@ -7,15 +7,15 @@ from typing import List, Any
 import threading
 import time
 
-# A simple 2-way client that sends some messages to PD and then starts a server that
-# receives and prints messages on the console. To be able to listen and send messages
-# at the same time, the client and server in seperate threads using the threading module.
+"""
+A simple 2-way client that sends some messages to PD and then starts a server that receives and prints messages on the console. To be able to listen and send messages at the same time, the client and server in seperate threads using the threading module.
+"""
 
-clientIp = '129.240.79.163'  # remote ip
+clientIp = '129.240.238.21'  # remote ip
 # clientIp = '129.240.238.20'  # remote ip
-clientPort = 30001
+clientPort = 61002
 
-serverIp = '193.157.182.176'  # local ip
+serverIp = '129.240.238.21'  # local ip
 # serverIp = '129.240.238.20'  # local ip
 serverPort = 61001
 
@@ -45,33 +45,31 @@ def sendMessages(client):
     message = "Hello from python client!"
     osc_address = "/pd"
 
-    # client.send_message(osc_address, message)
-    # return
-
     print("sending messages..")
-    # for i in range(10):
-    # open a OSC bundle
-    bundle = osc_bundle_builder.OscBundleBuilder(1)
+    for i in range(10):
+        # open a OSC bundle
+        bundle = osc_bundle_builder.OscBundleBuilder(
+            osc_bundle_builder.IMMEDIATELY)
 
-    # create a message with an OSC address
-    msg = osc_message_builder.OscMessageBuilder(address=osc_address)
+        # create a message with an OSC address
+        msg = osc_message_builder.OscMessageBuilder(address=osc_address)
 
-    # add arguments to the message and add them to the bundle
-    msg.add_arg(message)
-    bundle.add_content(msg.build())
+        # add arguments to the message and add them to the bundle
+        msg.add_arg(message)
+        bundle.add_content(msg.build())
 
-    # when we are done, add the bundle inside itself.
-    sub_bundle = bundle.build()
-    bundle.add_content(sub_bundle)
+        # when we are done, add the bundle inside itself.
+        sub_bundle = bundle.build()
+        bundle.add_content(sub_bundle)
 
-    # Finally, build the bundle. It should now have "._contents" of this structure:
-    # [OscMessage object, OscBundle object]
-    bundle = bundle.build()
+        # Finally, build the bundle. It should now have "._contents" of this structure:
+        # [OscMessage object, OscBundle object]
+        bundle = bundle.build()
 
-    client.send(bundle._contents[1])
+        client.send(bundle._contents[1])
 
-    # wait a litte bit
-    # time.sleep(1)
+        # wait a litte bit
+        time.sleep(0.5)
 
     print("done sending.")
 
@@ -89,5 +87,5 @@ def startServer(ip, port):
 
 
 # run our code.
-# startServer(serverIp, serverPort)
+startServer(serverIp, serverPort)
 startClient(clientIp, clientPort)

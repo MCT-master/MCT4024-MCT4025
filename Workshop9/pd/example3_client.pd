@@ -46,7 +46,7 @@
 #X text 39 501 is connected:;
 #X msg 130 442 disconnect;
 #X text 223 416 connect to python server;
-#X obj 760 42 mrpeach/udpreceive 8888;
+#X obj 760 42 mrpeach/udpreceive 61002;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
