@@ -1,4 +1,4 @@
-#N canvas 347 244 849 579 12;
+#N canvas 347 244 743 407 12;
 #X obj 21 222 list split 20, f 59;
 #X obj 21 251 list split 16, f 14;
 #X msg 450 121 35 98 117 110 100 108 101 0 131 170 126 127 0 0 0 0 0 0 0 40 47 112 121 0 44 115 115 115 115 0 0 0 72 101 108 108 111 0 0 0 102 114 111 109 0 0 0 0 80 68 0 0 99 108 105 101 110 116 33 0, f 39;
@@ -12,10 +12,9 @@
 #X obj 159 364 outlet;
 #X text 166 346 OSC message;
 #X text 58 346 timetag;
-#X text 17 9 Sometimes \, unpackOSC crashes PD when receiving an OSC message with a timetag.;
 #X text 17 57 This object provide a hacky fix \; taking a raw OSC bundle/list that contains a timetag and returning the same bundle without the 4 last digits of the timetag.;
-#X text 127 449 if 0 \, then do nothing?;
 #X text 17 124 However \, this intermediate layer will reduce the sync accuracy of the system \, naturally;
+#X text 17 9 Sometimes \, unpackOSC crashes PD (only the 64-bit version) when receiving an OSC message with a timetag;
 #X connect 0 0 1 0;
 #X connect 0 1 4 1;
 #X connect 1 0 5 0;

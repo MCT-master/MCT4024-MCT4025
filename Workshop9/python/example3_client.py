@@ -16,11 +16,9 @@ A 2-way client that sends tick pulses with manipulated timetags(!) to PD for met
 """
 
 clientIp = '129.240.238.21'  # remote ip
-# clientIp = '129.240.238.20'  # remote ip
 clientPort = 61002
 
 serverIp = '129.240.238.21'  # local ip
-# serverIp = '129.240.238.20'  # local ip
 serverPort = 61001
 
 
@@ -81,7 +79,7 @@ def sendMessages(client):
         # send the bundle to remote client
         client.send(bundle)
 
-        # One frame every second
+        # One frame every half second
         time.sleep(0.5)
 
     print("done sending...")

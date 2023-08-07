@@ -12,7 +12,6 @@ A simple 2-way client that sends some messages to PD and then starts a server th
 """
 
 clientIp = '129.240.238.21'  # remote ip
-# clientIp = '129.240.238.20'  # remote ip
 clientPort = 61002
 
 serverIp = '129.240.238.21'  # local ip

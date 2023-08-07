@@ -13,7 +13,9 @@ pip install playsound==1.2.2
 pip install python-osc
 ```
 
-- In Pure Data, install the [mrpeach](https://github.com/pd-externals/mrpeach) library from the "Find Externals".
+- In Pure Data, install the [mrpeach](https://github.com/pd-externals/mrpeach) library from the "Find Externals" tab.
+
+**NB!** It's important that we have the 32-bit version of PD vanilla, not the 64-bit version.
 
 # Workshop Examples
 

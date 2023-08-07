@@ -10,15 +10,15 @@ import pathlib
 from playsound import playsound
 
 
-# A 2-way client that sends some tick pulses to PD that control a metronome and
-# then starts a server that receives tick pulses from pd that control a metronome here.
+"""
+A 2-way client that sends some tick pulses to PD that control a metronome and then starts a server that receives tick pulses from pd that control a metronome here.
+"""
 
 clientIp = '129.240.238.21'  # remote ip
-clientPort = 30002
+clientPort = 61002
 
-serverIp = '129.240.79.193'  # local ip
-serverPort = 30001
-
+serverIp = '129.240.238.21'  # local ip
+serverPort = 61001
 
 # find the absolute path to the audio file tick.wav.
 path = pathlib.Path(__file__).parent.resolve()
@@ -74,9 +74,9 @@ def sendMessages(client):
         # send the bundle to remote client
         client.send(bundle)
 
-        # One frame every second
-        time.sleep(1)
-    
+        # One frame every half second
+        time.sleep(.5)
+
     print("done sending.")
 
 
@@ -90,6 +90,7 @@ def startServer(ip, port):
     # Start our server in a paralell thread
     thread = threading.Thread(target=server.serve_forever)
     thread.start()
+
 
 # run our code.
 startServer(serverIp, serverPort)
