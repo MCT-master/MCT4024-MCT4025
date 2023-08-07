@@ -11,11 +11,13 @@ import time
 # receives and prints messages on the console. To be able to listen and send messages
 # at the same time, the client and server in seperate threads using the threading module.
 
-clientIp = '129.240.238.21'  # remote ip
-clientPort = 30002
+clientIp = '129.240.79.163'  # remote ip
+# clientIp = '129.240.238.20'  # remote ip
+clientPort = 30001
 
-serverIp = '129.240.79.193'  # local ip
-serverPort = 30001
+serverIp = '193.157.182.176'  # local ip
+# serverIp = '129.240.238.20'  # local ip
+serverPort = 61001
 
 
 def pyOscHandler(address: str, *args: List[Any]) -> None:
@@ -30,7 +32,7 @@ dispatcher.map("/py*", pyOscHandler)
 
 def startClient(ip, port):
     # create a simple OSC client
-    client = udp_client.SimpleUDPClient(ip, port)
+    client = udp_client.UDPClient(ip, port)
     print(f'Starting client on {ip}, port {port}.')
 
     # Send messages from our client in a paralell thread
@@ -43,29 +45,33 @@ def sendMessages(client):
     message = "Hello from python client!"
     osc_address = "/pd"
 
+    # client.send_message(osc_address, message)
+    # return
+
     print("sending messages..")
-    for i in range(10):
-        # open a OSC bundle
-        bundle = osc_bundle_builder.OscBundleBuilder(
-            osc_bundle_builder.IMMEDIATELY)
+    # for i in range(10):
+    # open a OSC bundle
+    bundle = osc_bundle_builder.OscBundleBuilder(1)
 
-        # create a message with an OSC address
-        msg = osc_message_builder.OscMessageBuilder(address=osc_address)
+    # create a message with an OSC address
+    msg = osc_message_builder.OscMessageBuilder(address=osc_address)
 
-        # add arguments to the message
-        msg.add_arg(f'{message} nr.{i+1}')
+    # add arguments to the message and add them to the bundle
+    msg.add_arg(message)
+    bundle.add_content(msg.build())
 
-        # build the message and add to current bundle
-        bundle.add_content(msg.build())
+    # when we are done, add the bundle inside itself.
+    sub_bundle = bundle.build()
+    bundle.add_content(sub_bundle)
 
-        # close OSC bundle
-        bundle = bundle.build()
+    # Finally, build the bundle. It should now have "._contents" of this structure:
+    # [OscMessage object, OscBundle object]
+    bundle = bundle.build()
 
-        # send the bundle to remote client
-        client.send(bundle)
+    client.send(bundle._contents[1])
 
-        # wait a litte bit
-        time.sleep(1)
+    # wait a litte bit
+    # time.sleep(1)
 
     print("done sending.")
 
@@ -83,5 +89,5 @@ def startServer(ip, port):
 
 
 # run our code.
-startServer(serverIp, serverPort)
+# startServer(serverIp, serverPort)
 startClient(clientIp, clientPort)
