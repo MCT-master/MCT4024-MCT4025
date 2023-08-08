@@ -24,13 +24,11 @@ Andrew Schmeder. (2010). Best Practices for Open Sound Control. Center for New M
   - Download the [mrpeach](https://github.com/pd-externals/mrpeach) library
 - [Wireshark](https://www.wireshark.org/download.html)
 
-## Workshop
+# Workshop
 
 In the workshop we will explore 3 example systems. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example and do some activities together.
 
-<hr>
-
-### Example 1 - Simple 2-way Connection
+## Example 1 - Simple 2-way Connection
 
 **Files**
 
@@ -58,9 +56,7 @@ The first example demonstrates a simple 2-way OSC communication between Python a
 
 Available ports will depend on the connection you are using. However, if both machines are on the Lola network, you can use any port to connect. This is also true for localhost connections.
 
-<hr>
-
-### Example 2 - Networked Controlled Metronome
+## Example 2 - Networked Controlled Metronome
 
 **Files**
 
@@ -93,9 +89,7 @@ Most likely, you will notice that the stability of the networked controlled metr
 1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
 2. Connect and assign yourself an IP on the Lola network and test the 2-way connection in pairs.
 
-<hr>
-
-### Example 3 - Custom Timetagging
+## Example 3 - Custom Timetagging
 
 **Files**
 
@@ -140,7 +134,7 @@ Activity - Design Forward Synchronization system
  <img src="./fig/forward-sync.jpg" height=500>
 </p>
 
-# Resources
+## Resources
 
 - [Python Speech recognition with OSC network communication (dispatchers, threading server, clients etc.)](https://www.youtube.com/watch?v=T3jd-894Ar4)
 - [OSC official homepage](https://opensoundcontrol.stanford.edu/index.html)
