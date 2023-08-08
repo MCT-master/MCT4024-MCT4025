@@ -12,9 +12,11 @@ import pathlib
 import time
 
 """
-A 2-way client that continously sends "tick" messages to a remote client (PD) with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
+A 2-way client that sends "tick" messages to a remote client (PD) continously with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
 
-The code starts only the local server first, listening to signals from PD. Uncomment line 104 to start sending to the client, as well. Manipulate (add, subract, multiply) the utc_timestamp number on line 70 to alter the timetag sent to the client. 
+By default, the code only starts sending "tick" messages to PD, NOT the server part. Uncomment line 108 to start sending to the server, as well.
+
+Edit the timetagOffset variable to control how many seconds to offset the utc_timestamp (line 72) added to each OSC message before its sent off.
 """
 
 clientIp = '129.240.238.21'  # remote ip
@@ -22,6 +24,9 @@ clientPort = 8001
 
 serverIp = '193.157.182.176'  # local ip
 serverPort = 8000
+
+# how many seconds to offset utc_timetag on line 72
+timetagOffset = 0
 
 
 # find the absolute path to the audio file tick.wav.
@@ -64,7 +69,8 @@ def sendMessages(client):
         utc_timestamp = calendar.timegm(date.utctimetuple())
 
         # open a OSC bundle and use the "custom" UTC timestamp instead of IMMEDIATLY
-        bundle = osc_bundle_builder.OscBundleBuilder(utc_timestamp)
+        bundle = osc_bundle_builder.OscBundleBuilder(
+            utc_timestamp+timetagOffset)
 
         # create a message with an OSC address
         msg = osc_message_builder.OscMessageBuilder(address=osc_address)
@@ -100,5 +106,5 @@ def startServer(ip, port):
 
 
 # run our code.
-startServer(serverIp, serverPort)
-# startClient(clientIp, clientPort)
+#startServer(serverIp, serverPort)
+startClient(clientIp, clientPort)

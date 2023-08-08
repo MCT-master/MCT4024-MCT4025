@@ -4,7 +4,8 @@
 #X obj 37 175 t b a b, f 16;
 #X obj 37 354 mrpeach/packOSC;
 #X obj 37 143 list trim;
-#X obj 37 12 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 37 12 tgl 19 0 empty empty empty 0 -10 0 12 -262144 -1 -1 0
+1;
 #X msg 37 79 tick;
 #X obj 37 111 list prepend /py;
 #X obj 760 334 dac~;
@@ -25,19 +26,24 @@
 #X obj 715 223 print;
 #X text 36 197 close bundle;
 #X text 141 197 open a bundle (and generate a timetag);
-#X obj 160 240 cnv 15 400 100 empty empty empty 20 12 0 14 #fcfcc4 #404040 0;
+#X obj 160 240 cnv 15 400 100 empty empty empty 20 12 0 14 -262130
+-66577 0;
 #X msg 165 250 timetagoffset 0;
 #X msg 187 273 timetagoffset -1;
 #X text 277 250 send current time as timetag;
 #X text 308 273 immediate time tag (default);
-#X text 360 295 current time plus 1 second (delay is in microseconds);
-#X obj 752 104 cnv 15 600 80 empty empty empty 10 12 0 14 #fcfcc4 #404040 0;
-#X text 902 139 If the OSC packet has a timetag \, [pipelist] will delay it until the time occurs;
+#X text 360 295 current time plus 1 second (delay is in microseconds)
+;
+#X obj 752 104 cnv 15 600 80 empty empty empty 10 12 0 14 -262130 -66577
+0;
+#X text 902 139 If the OSC packet has a timetag \, [pipelist] will
+delay it until the time occurs;
 #X obj 760 148 mrpeach/pipelist, f 17;
-#X floatatom 886 108 10 0 0 1 - - - 0;
+#X floatatom 886 108 10 0 0 1 - - -;
 #X obj 55 406 loadbang;
 #X obj 36 466 mrpeach/udpsend;
-#X obj 130 495 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 130 495 tgl 19 0 empty empty empty 0 -10 0 12 -262144 -1 -1
+1 1;
 #X text 34 495 is connected:;
 #X msg 127 406 disconnect;
 #X text 259 433 connect to python server;
@@ -46,9 +52,9 @@
 #X obj 37 48 metro 500;
 #X text 64 12 Send a metronome puls to remote client;
 #X obj 760 42 mrpeach/udpreceive 8001;
-#X msg 210 296 timetagoffset 1e+07;
-#X text 165 342 When delaying a signal by a number greater than the RTT latency \, the stability of the metronome should increase.;
-#X text 961 105 second outlet is timetag offset in millieconds relative to receiver's clock.;
+#X msg 210 296 timetagoffset 1e+007;
+#X text 961 105 second outlet is timetag offset in millieconds relative
+to receiver's clock.;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;

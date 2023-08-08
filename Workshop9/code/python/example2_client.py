@@ -11,7 +11,7 @@ from playsound import playsound
 
 
 """
-A 2-way client that continously sends "tick" messages to a remote client (PD) to control a metronome, and listens for tick pulses to control a local metronome.
+A 2-way client that sends "tick" messages to a remote client (PD) continously to control a metronome, and listens for tick pulses to control a local metronome.
 """
 
 clientIp = '129.240.238.21'  # remote ip
