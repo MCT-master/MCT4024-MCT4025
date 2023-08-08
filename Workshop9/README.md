@@ -40,7 +40,7 @@ In the workshop we will explore 3 example systems. The examples show how we can 
 The first example demonstrates a simple 2-way OSC communication between Python and Pure Data where you can send simple strings between two clients.
 
 <p align="left">
- <img src="./fig/example1.jpg" width=500>
+ <img src="./fig/example1.jpg" width=300>
 </p>
 
 **How to run**
@@ -72,7 +72,7 @@ The second example demonstrates how we can begin to control and synchronize audi
 Most likely, you will notice that the stability of the networked controlled metronome is quite bad, with periodic dropouts due to network jitter and latency. This will especially be true if you connect using WiFi, such as Eduroam or the MCT personal local WiFi.
 
 <p align="left">
- <img src="./fig/example2.jpg" height=500>
+ <img src="./fig/example2.jpg" height=300>
 </p>
 
 **How to run**
@@ -109,7 +109,7 @@ we mitigate jitter and should acheive a more stable message.
 Fortunatley, python-osc will automatically delay message that contain timetags for future execution. Therefore, we dont have to code this feature.
 
 <p align="left">
- <img src="./fig/example3.jpg" height=500>
+ <img src="./fig/example3.jpg" height=300>
 </p>
 
 **How to run**
