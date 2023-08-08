@@ -21,10 +21,15 @@ pip install python-osc
 
 The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example and do some activities together.
 
-### Example 1 - Connection
+## Example 1 - Simple 2-way Connection
 
-**Files**: _./python/example1_client.py_ and _./pd/example1_client.pd_
-**What**: The first example demonstrates a simple 2-way OSC communication between Python and Pure Data where you can send simple strings between the two machines. Simple and easy.
+**Files**
+
+- _./python/example1_client.py_
+- _./pd/example1_client.pd_
+
+**What**
+The first example demonstrates a simple 2-way OSC communication between Python and Pure Data where you can send simple strings between the two machines. Simple and easy.
 
 Diagram
 
@@ -34,13 +39,18 @@ Diagram
 2. Turn off any Firewall on your machine.
 3. Run the python file _example1_client.py_ python file.
 
-**Workshop Acitivity**: First, test and explore the connection on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs. If this succeeds, connect and assign yourself an IP on the Lola network and test the connection in pairs over the network. Avaliable ports will depend on the connection you are using. However, if both machines are on the Lola network, you should be able to use any port to connect. This is also true for localhost connections.
+**Workshop Acitivity**
 
-### Example 2 - Temporal Audio Control
+1. First, test and explore the connection on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
+2. If nr.1 succeeds, connect and assign yourself an IP on the Lola network and test the connection in pairs over the network.
+
+Avaliable ports will depend on the connection you are using. However, if both machines are on the Lola network, you should be able to use any port to connect. This is also true for localhost connections.
+
+## Example 2 - Temporal Audio Control
 
 ...
 
-### Example 3 - Custom Timetagging
+## Example 3 - Custom Timetagging
 
 python-osc delays OSC messages via timetag by itself.
 
