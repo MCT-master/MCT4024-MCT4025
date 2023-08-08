@@ -28,6 +28,8 @@ Andrew Schmeder. (2010). Best Practices for Open Sound Control. Center for New M
 
 In the workshop we will explore 3 example systems. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example and do some activities together.
 
+<hr>
+
 ### Example 1 - Simple 2-way Connection
 
 **Files**
@@ -40,7 +42,7 @@ In the workshop we will explore 3 example systems. The examples show how we can 
 The first example demonstrates a simple 2-way OSC communication between Python and Pure Data where you can send simple strings between two clients.
 
 <p align="left">
- <img src="./fig/example1.jpg" height=300>
+ <img src="./fig/example1.jpg" width=500>
 </p>
 
 **How to run**
@@ -55,6 +57,8 @@ The first example demonstrates a simple 2-way OSC communication between Python a
 2. Connect and assign yourself an IP on the Lola network and test the 2-way connection in pairs.
 
 Available ports will depend on the connection you are using. However, if both machines are on the Lola network, you can use any port to connect. This is also true for localhost connections.
+
+<hr>
 
 ### Example 2 - Networked Controlled Metronome
 
@@ -72,7 +76,7 @@ The second example demonstrates how we can begin to control and synchronize audi
 Most likely, you will notice that the stability of the networked controlled metronome is quite bad, with periodic dropouts due to network jitter and latency. This will especially be true if you connect using WiFi, such as Eduroam or the MCT personal local WiFi.
 
 <p align="left">
- <img src="./fig/example2.jpg" height=300>
+ <img src="./fig/example2.jpg" height=500>
 </p>
 
 **How to run**
@@ -88,6 +92,8 @@ Most likely, you will notice that the stability of the networked controlled metr
 
 1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
 2. Connect and assign yourself an IP on the Lola network and test the 2-way connection in pairs.
+
+<hr>
 
 ### Example 3 - Custom Timetagging
 
@@ -109,7 +115,7 @@ we mitigate jitter and should acheive a more stable message.
 Fortunatley, python-osc will automatically delay message that contain timetags for future execution. Therefore, we dont have to code this feature.
 
 <p align="left">
- <img src="./fig/example3.jpg" height=300>
+ <img src="./fig/example3.jpg" height=500>
 </p>
 
 **How to run**
