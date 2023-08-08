@@ -25,15 +25,16 @@ The examples show how we can start building complex OSC audio communication syst
 
 **Files**
 
-- _./python/example1_client.py_
-- _./pd/example1_client.pd_
+- pd/example1_client.pd
+- python/example1_client.py
 
 **What**
+
 The first example demonstrates a simple 2-way OSC communication between Python and Pure Data where you can send simple strings between the two machines. Simple and easy.
 
 Diagram
 
-**How to run**:
+**How to run**
 
 1. Open the Python and Pure Data examples and fill inn correct IP and port settings.
 2. Turn off any Firewall on your machine.
@@ -41,8 +42,8 @@ Diagram
 
 **Workshop Acitivity**
 
-1. First, test and explore the connection on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. If nr.1 succeeds, connect and assign yourself an IP on the Lola network and test the connection in pairs over the network.
+1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
+2. Cconnect and assign yourself an IP on the Lola network and test the connection in pairs.
 
 Avaliable ports will depend on the connection you are using. However, if both machines are on the Lola network, you should be able to use any port to connect. This is also true for localhost connections.
 
