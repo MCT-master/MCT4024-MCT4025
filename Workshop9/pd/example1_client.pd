@@ -1,4 +1,4 @@
-#N canvas 842 119 814 348 12;
+#N canvas 593 123 814 348 12;
 #X msg 146 181 [;
 #X msg 37 180 ];
 #X text 36 160 close bundle;
@@ -18,9 +18,9 @@
 #X obj 37 304 mrpeach/udpsend;
 #X obj 431 157 print osc;
 #X msg 149 244 disconnect;
-#X obj 431 55 mrpeach/udpreceive 61002;
-#X msg 80 271 connect 129.240.238.21 61001;
 #X obj 431 123 mrpeach/routeOSC /pd;
+#X obj 431 55 mrpeach/udpreceive 8001;
+#X msg 80 271 connect 193.157.182.176 8000;
 #X connect 0 0 14 0;
 #X connect 1 0 14 0;
 #X connect 3 0 1 0;
@@ -29,10 +29,10 @@
 #X connect 4 0 3 0;
 #X connect 8 0 4 0;
 #X connect 9 0 8 0;
-#X connect 10 0 20 0;
-#X connect 13 0 21 0;
+#X connect 10 0 21 0;
+#X connect 13 0 19 0;
 #X connect 14 0 16 0;
 #X connect 18 0 16 0;
-#X connect 19 0 13 0;
-#X connect 20 0 16 0;
-#X connect 21 0 17 0;
+#X connect 19 0 17 0;
+#X connect 20 0 13 0;
+#X connect 21 0 16 0;
