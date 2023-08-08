@@ -40,7 +40,7 @@ In the workshop we will explore 3 example systems. The examples show how we can 
 The first example demonstrates a simple 2-way OSC communication between Python and Pure Data where you can send simple strings between two clients.
 
 <p align="left">
- <img src="./fig/example1.jpg" width=300>
+ <img src="./fig/example1.jpg" width=500>
 </p>
 
 **How to run**
