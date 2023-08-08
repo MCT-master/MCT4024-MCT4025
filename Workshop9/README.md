@@ -117,7 +117,7 @@ Fortunatley, python-osc will automatically delay message that contain timetags f
 1. Open the Python and Pure Data examples and fill in the correct IP and port settings.
 2. Turn off any Firewall on your machine.
 3. Execute the _example3_client.py_ Python file. By default, this will start sending "tick" messages to PD continously, every half second, NOT start the server listening. Before executing, edit the timetagOffset variable to control how many seconds to offset the timestamp added to each OSC message before its sent off.
-4. Monitor the difference between the current UTC time and the sending UTC time from the second outlet of the [unpackOSC] object in Pure Data, _example3_client.pd_
+4. Monitor the difference between the current UTC time and the sending UTC time from the second outlet of the [mrpeach/unpackOSC] object in Pure Data, _example3_client.pd_
 
 To monitor and see how to get the UTC timestamp, check out and run the _example3_print_timestamp.py_.
 
