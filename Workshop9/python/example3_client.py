@@ -12,14 +12,16 @@ import pathlib
 import time
 
 """
-A 2-way client that sends tick pulses with manipulated timetags(!) to PD for metronome control before it starts a server that receives tick pulses with manipulated timetags(!) from pd for metronome control.
+A 2-way client that continously sends "tick" messages to a remote client (PD) with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
+
+The code starts only the local server first, listening to signals from PD. Uncomment line 104 to start sending to the client, as well. Manipulate (add, subract, multiply) the utc_timestamp number on line 70 to alter the timetag sent to the client. 
 """
 
 clientIp = '129.240.238.21'  # remote ip
-clientPort = 61002
+clientPort = 8001
 
-serverIp = '129.240.238.21'  # local ip
-serverPort = 61001
+serverIp = '193.157.182.176'  # local ip
+serverPort = 8000
 
 
 # find the absolute path to the audio file tick.wav.
@@ -27,7 +29,7 @@ path = pathlib.Path(__file__).parent.resolve()
 audio = "tick.wav"
 
 
-def pyOscHandler(address: str, *args: List[Any]) -> None:
+def oscHandler(address: str, *args: List[Any]) -> None:
     # A dispatcher function that handles the OSC messages we recevie on our server
     print(f'{args[0]}')
 
@@ -37,7 +39,7 @@ def pyOscHandler(address: str, *args: List[Any]) -> None:
 
 # Setup different "routes" where we can map different functions to different OSC adressess received.
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/py*", pyOscHandler)
+dispatcher.map("/py*", oscHandler)
 
 
 def startClient(ip, port):
@@ -98,5 +100,5 @@ def startServer(ip, port):
 
 
 # run our code.
-# startServer(serverIp, serverPort)
-startClient(clientIp, clientPort)
+startServer(serverIp, serverPort)
+# startClient(clientIp, clientPort)

@@ -11,21 +11,22 @@ from playsound import playsound
 
 
 """
-A 2-way client that sends some tick pulses to PD that control a metronome and then starts a server that receives tick pulses from pd that control a metronome here.
+A 2-way client that continously sends "tick" messages to a remote client (PD) to control a metronome, and listens for tick pulses to control a local metronome.
 """
 
 clientIp = '129.240.238.21'  # remote ip
-clientPort = 61002
+clientPort = 8001
 
-serverIp = '129.240.238.21'  # local ip
-serverPort = 61001
+serverIp = '193.157.182.176'  # local ip
+serverPort = 8000
+
 
 # find the absolute path to the audio file tick.wav.
 path = pathlib.Path(__file__).parent.resolve()
 audio = "tick.wav"
 
 
-def pyOscHandler(address: str, *args: List[Any]) -> None:
+def oscHandler(address: str, *args: List[Any]) -> None:
     # A dispatcher function that handles the OSC messages we recevie on our server
     print(f'{args[0]}')
 
@@ -35,7 +36,7 @@ def pyOscHandler(address: str, *args: List[Any]) -> None:
 
 # Setup different "routes" where we can map different functions to different OSC adressess received.
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/py*", pyOscHandler)
+dispatcher.map("/py*", oscHandler)
 
 
 def startClient(ip, port):
@@ -54,7 +55,7 @@ def sendMessages(client):
     osc_address = "/pd"
 
     print("sending messages..")
-    for i in range(10):
+    while True:
         # open a OSC bundle
         bundle = osc_bundle_builder.OscBundleBuilder(
             osc_bundle_builder.IMMEDIATELY)

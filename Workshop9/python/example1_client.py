@@ -8,25 +8,26 @@ import threading
 import time
 
 """
-A simple 2-way client that sends some messages to PD and then starts a server that receives and prints messages on the console. To be able to listen and send messages at the same time, the client and server in seperate threads using the threading module.
+A 2-way client that sends 10 messages to a remote client (PD) and listens, routes and prints OSC messages on the console. 
+
+To be able to listen and send messages at the same time, the client and server run in seperate threads using the threading module.
 """
 
 clientIp = '129.240.238.21'  # remote ip
-clientPort = 61002
+clientPort = 8001
 
-serverIp = '129.240.238.21'  # local ip
-# serverIp = '129.240.238.20'  # local ip
-serverPort = 61001
+serverIp = '193.157.182.176'  # local ip
+serverPort = 8000
 
 
-def pyOscHandler(address: str, *args: List[Any]) -> None:
+def oscHandler(address: str, *args: List[Any]) -> None:
     # A dispatcher function that handles the OSC messages we recevie on our server
     print(f'{address} {args}')
 
 
 # Setup different "routes" where we can map different functions to different OSC adressess received.
 dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/py*", pyOscHandler)
+dispatcher.map("/py*", oscHandler)
 
 
 def startClient(ip, port):
@@ -53,22 +54,20 @@ def sendMessages(client):
         # create a message with an OSC address
         msg = osc_message_builder.OscMessageBuilder(address=osc_address)
 
-        # add arguments to the message and add them to the bundle
+        # add arguments to the message
         msg.add_arg(message)
+
+        # build the message and add to current bundle
         bundle.add_content(msg.build())
 
-        # when we are done, add the bundle inside itself.
-        sub_bundle = bundle.build()
-        bundle.add_content(sub_bundle)
-
-        # Finally, build the bundle. It should now have "._contents" of this structure:
-        # [OscMessage object, OscBundle object]
+        # close OSC bundle
         bundle = bundle.build()
 
-        client.send(bundle._contents[1])
+        # send the bundle to remote client
+        client.send(bundle)
 
-        # wait a litte bit
-        time.sleep(0.5)
+        # One frame every half second
+        time.sleep(.5)
 
     print("done sending.")
 
