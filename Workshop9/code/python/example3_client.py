@@ -12,11 +12,9 @@ import pathlib
 import time
 
 """
-A 2-way client that sends "tick" messages to a remote client (PD) continously with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
+A p2p client that sends "tick" messages to a remote client (PD) continously with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
 
-By default, the code only starts sending "tick" messages to PD, NOT the server part. Uncomment line 108 to start sending to the server, as well.
-
-Edit the timetagOffset variable to control how many seconds to offset the utc_timestamp (line 72) added to each OSC message before its sent off.
+Edit the timetagOffset variable to control how many seconds to offset the utc_timestamp (line 72) added to each outgoing OSC message.
 """
 
 clientIp = '129.240.238.21'  # remote ip
@@ -106,5 +104,5 @@ def startServer(ip, port):
 
 
 # run our code.
-#startServer(serverIp, serverPort)
+startServer(serverIp, serverPort)
 startClient(clientIp, clientPort)

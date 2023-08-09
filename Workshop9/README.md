@@ -28,7 +28,7 @@ Andrew Schmeder. (2010). Best Practices for Open Sound Control. Center for New M
 
 In the workshop we will explore 3 example systems. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example and do some activities together.
 
-## Example 1 - Simple 2-way Connection
+## Example 1 - Simple p2p Connection
 
 **Files**
 
@@ -52,7 +52,7 @@ The first example demonstrates a simple 2-way OSC communication between Python a
 **Workshop Activity**
 
 1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Connect and assign yourself an IP on the Lola network and test the 2-way connection in pairs.
+2. Test and play around with example on the Lola network in pairs.
 
 Available ports will depend on the connection you are using. However, if both machines are on the Lola network, you can use any port to connect. This is also true for localhost connections.
 
@@ -87,9 +87,9 @@ Most likely, you will notice that the stability of the networked controlled metr
 (same as example 1)
 
 1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Connect and assign yourself an IP on the Lola network and test the 2-way connection in pairs.
+2. Test and play around with example on the Lola network in pairs.
 
-## Example 3 - Custom Timetagging
+## Example 3 - Realtime Synchronization With OSC Timetags
 
 **Files**
 
@@ -101,34 +101,33 @@ Most likely, you will notice that the stability of the networked controlled metr
 
 **What**
 
-The third example demonstrates how
+The third example demonstrates how we can use OSC timetags to improve synchronization and real-time musical performance over a network. The code is similar to the metronome control system introduced in example 2 but adds the option to adjust the timetags associated with each OSC packet.
 
-By increaing the timetag offset, the stability should increases
-we mitigate jitter and should acheive a more stable message.
-
-Fortunatley, python-osc will automatically delay message that contain timetags for future execution. Therefore, we dont have to code this feature.
+By increasing the timetag offset a few seconds, you should experience the metronome to be more stable and resiliant.
 
 <p align="left">
  <img src="./fig/example3.jpg" height=300>
 </p>
 
+The OSC timetags are essentially NTP timestamps; a 64-bit fixed floating point number. The first 32 bits specify the number of seconds since midnight on January 1, 1900, and the last 32 bits specify fractional parts of a second to a precision of about 200 picoseconds. Fortunately, to customize the timetag in python-osc, we only have to provide a floating point number of seconds since the epoch (midnight on January 1, 1900) in UTC, python-osc will do the rest for us. Similarly, in PD, the complexity is hidden as we just need to specify timetagOffset messages to the [mrpeach/packOSC] object to manipulate the timetag of the next incoming OSC message.
+
 **How to run**
 
 1. Open the Python and Pure Data examples and fill in the correct IP and port settings.
 2. Turn off any Firewall on your machine.
-3. Execute the _example3_client.py_ Python file. By default, this will start sending "tick" messages to PD continously, every half second, NOT start the server listening. Before executing, edit the timetagOffset variable to control how many seconds to offset the timestamp added to each OSC message before its sent off.
-4. Monitor the difference between the current UTC time and the sending UTC time from the second outlet of the [mrpeach/unpackOSC] object in Pure Data, _example3_client.pd_
+3. Before executing the _example3_client.py_ Python file, edit the timetagOffset variable to control how many seconds to offset the timestamp added to each outgoing OSC message.
+4. Monitor the difference between the current timestamp and the sending timestamp from the second outlet of the [mrpeach/unpackOSC] object in Pure Data, _example3_client.pd_.
+5. Start the metronome in _example3_client.pd_ and send timetagOffset messages to the [mrpeach/packOSC] object to manipulate the timetags. Fortunately, python-osc will automatically delay messages that contain timetags for future execution. Therefore, we don't have to code this feature explicitly in Python.
 
-To monitor and see how to get the UTC timestamp, check out and run the _example3_print_timestamp.py_.
+To monitor and see how I get the UTC time since epoch, check out and run the _example3_print_timestamp.py_.
 
 **Activity**
 
-python-osc delays OSC messages via timetag by itself.
+1. Test and play around with example3 on the Lola network in pairs.
 
-If manipulate the dispatcher.py source code. lines 41, 59 and 200. add the timed_msg.time to arguments.
+By offsetting/forwarding the OSC timestamp, you should experience that your signal is more stable and resilient to jitter. According to Schmeder et.al, we can use something called Forward Synchronization to remove jitter and synchronize two machines if the clock sync error between our two machines is smaller than the average transport jitter.
 
-...
-Activity - Design Forward Synchronization system
+2. Try to recreate the Forward Synchronization method detailed in the literature and diagram below. Also, make the clock signal control something more interesting than a simple metronome.
 
 <p align="left">
  <img src="./fig/forward-sync.jpg" height=500>
@@ -137,5 +136,5 @@ Activity - Design Forward Synchronization system
 ## Resources
 
 - [Python Speech recognition with OSC network communication (dispatchers, threading server, clients etc.)](https://www.youtube.com/watch?v=T3jd-894Ar4)
-- [OSC official homepage](https://opensoundcontrol.stanford.edu/index.html)
--
+- [OSC Official Homepage](https://opensoundcontrol.stanford.edu/index.html)
+- [AbletonOSC](https://github.com/ideoforms/AbletonOSC)

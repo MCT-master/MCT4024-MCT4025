@@ -8,7 +8,7 @@ import threading
 import time
 
 """
-A 2-way client that sends 10 messages to a remote client (PD) and listens, routes and prints OSC messages on the console. 
+A p2p client that sends 10 messages to a remote client (PD) and listens, routes and prints OSC messages on the console. 
 
 To be able to listen and send messages at the same time, the client and server run in seperate threads using the threading module.
 """
