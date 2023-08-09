@@ -26,7 +26,7 @@ Andrew Schmeder. (2010). Best Practices for Open Sound Control. Center for New M
 
 # Workshop
 
-In the workshop we will explore 3 example systems. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of a PD and Python file. In class, we will go through each example and do some activities together.
+In the workshop, we will explore 3 example systems. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of PD and Python files. In class, we will go through each example and do some activities together.
 
 ## Example 1 - Simple p2p Connection
 
@@ -52,7 +52,7 @@ The first example demonstrates a simple 2-way OSC communication between Python a
 **Workshop Activity**
 
 1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Test and play around with example on the Lola network in pairs.
+2. Test and play around with the example on the Lola network in pairs.
 
 Available ports will depend on the connection you are using. However, if both machines are on the Lola network, you can use any port to connect. This is also true for localhost connections.
 
@@ -79,7 +79,7 @@ Most likely, you will notice that the stability of the networked controlled metr
 
 1. Open the Python and Pure Data examples and fill in the correct IP and port settings.
 2. Turn off any Firewall on your machine.
-3. Execute the _example2_client.py_ Python file. This will start sending "tick" messages to PD continously, every half second.
+3. Execute the _example2_client.py_ Python file. This will start sending "tick" messages to PD continuously, every half second.
 4. Turn on the metronome in the PD example to send the other way.
 
 **Workshop Activity**
@@ -87,7 +87,7 @@ Most likely, you will notice that the stability of the networked controlled metr
 (same as example 1)
 
 1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Test and play around with example on the Lola network in pairs.
+2. Test and play around with the example on the Lola network in pairs.
 
 ## Example 3 - Realtime Synchronization With OSC Timetags
 
@@ -103,7 +103,7 @@ Most likely, you will notice that the stability of the networked controlled metr
 
 The third example demonstrates how we can use OSC timetags to improve synchronization and real-time musical performance over a network. The code is similar to the metronome control system introduced in example 2 but adds the option to adjust the timetags associated with each OSC packet.
 
-By increasing the timetag offset a few seconds, you should experience the metronome to be more stable and resiliant.
+By increasing the timetag offset a few seconds, you should experience the metronome to be more stable and resilient.
 
 <p align="left">
  <img src="./fig/example3.jpg" height=300>
@@ -119,7 +119,7 @@ The OSC timetags are essentially NTP timestamps; a 64-bit fixed floating point n
 4. Monitor the difference between the current timestamp and the sending timestamp from the second outlet of the [mrpeach/unpackOSC] object in Pure Data, _example3_client.pd_.
 5. Start the metronome in _example3_client.pd_ and send timetagOffset messages to the [mrpeach/packOSC] object to manipulate the timetags. Fortunately, python-osc will automatically delay messages that contain timetags for future execution. Therefore, we don't have to code this feature explicitly in Python.
 
-To monitor and see how I get the UTC time since epoch, check out and run the _example3_print_timestamp.py_.
+To monitor and see how I get the UTC time since the epoch, check out and run the _example3_print_timestamp.py_.
 
 **Activity**
 
@@ -135,6 +135,6 @@ By offsetting/forwarding the OSC timestamp, you should experience that your sign
 
 ## Resources
 
-- [Python Speech recognition with OSC network communication (dispatchers, threading server, clients etc.)](https://www.youtube.com/watch?v=T3jd-894Ar4)
+- [Python Speech recognition with OSC network communication (dispatchers, threading server, clients, etc.)](https://www.youtube.com/watch?v=T3jd-894Ar4)
 - [OSC Official Homepage](https://opensoundcontrol.stanford.edu/index.html)
 - [AbletonOSC](https://github.com/ideoforms/AbletonOSC)
