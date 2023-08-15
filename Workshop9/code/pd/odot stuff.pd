@@ -1,0 +1,29 @@
+#N canvas 440 260 1011 542 12;
+#X obj 22 206 o.messageiterate;
+#X obj 22 67 o.compose 339 125 binhex b#2F666F6F203A20312C0A2F626172203A
+b#20322C0A2F7374657665203A2022616C b#6962616261222C0A2F626F6F203A205B
+b#312C20322C20332C20342C20352C2022 b#6F74686572207374756666225D;
+#X text 143 206 iterate messages in encoded bundles;
+#X obj 22 241 o.print;
+#X obj 207 308 o.pack /py;
+#X msg 207 278 tick;
+#X obj 317 387 o.display 352 38;
+#X obj 207 342 o.timetag /timetag;
+#X msg 227 435 connect localhost 7777;
+#X obj 208 470 netsend -u -b;
+#X obj 451 103 o.bundle;
+#X obj 504 138 o.display 430 38;
+#X obj 451 227 o.display 430 38;
+#X obj 477 193 print not-a-bundle;
+#X obj 208 408 o.slip.encode;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+#X connect 7 0 14 0;
+#X connect 8 0 9 0;
+#X connect 10 0 12 0;
+#X connect 10 1 13 0;
+#X connect 10 2 11 0;
+#X connect 14 0 9 0;
