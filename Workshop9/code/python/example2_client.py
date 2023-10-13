@@ -11,13 +11,15 @@ from playsound import playsound
 
 
 """
-A p2p client that sends "tick" messages to a remote client (PD) continously to control a metronome, and listens for tick pulses to control a local metronome.
+Expanding on example1_client.py.
+
+A p2p client that continously sends "tick" messages to a remote client (PD) to control a metronome, and listens for tick pulses to control a local metronome.
 """
 
-clientIp = '129.240.238.21'  # remote ip
+clientIp = '127.0.0.1'  # remote ip
 clientPort = 8001
 
-serverIp = '193.157.182.176'  # local ip
+serverIp = '127.0.0.1'  # local ip
 serverPort = 8000
 
 

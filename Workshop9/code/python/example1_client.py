@@ -8,15 +8,18 @@ import threading
 import time
 
 """
-A p2p client that sends 10 messages to a remote client (PD) and listens, routes and prints OSC messages on the console. 
+A p2p client that sends 10 messages to a remote client (PD) and listens for OSC messages via a simple server.
 
 To be able to listen and send messages at the same time, the client and server run in seperate threads using the threading module.
+
+docs:
+https://python-osc.readthedocs.io/en/latest/server.html#threading-server 
 """
 
-clientIp = '129.240.238.21'  # remote ip
+clientIp = '127.0.0.1'  # remote ip
 clientPort = 8001
 
-serverIp = '193.157.182.176'  # local ip
+serverIp = '127.0.0.1'  # local ip
 serverPort = 8000
 
 

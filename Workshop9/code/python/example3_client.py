@@ -12,20 +12,21 @@ import pathlib
 import time
 
 """
-A p2p client that sends "tick" messages to a remote client (PD) continously with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
+Expanding on example2_client.py
+
+A p2p client that continously sends "tick" messages to a remote client (PD) with timetags to control a metronome, and listens for tick pulses with timetags to control a local metronome.
 
 Edit the timetagOffset variable to control how many seconds to offset the utc_timestamp (line 72) added to each outgoing OSC message.
 """
 
-clientIp = '129.240.238.21'  # remote ip
+clientIp = '127.0.0.1'  # remote ip
 clientPort = 8001
 
-serverIp = '193.157.182.176'  # local ip
+serverIp = '127.0.0.1'  # local ip
 serverPort = 8000
 
-# how many seconds to offset utc_timetag on line 72
+# how many seconds to offset utc_timetag on line 67
 timetagOffset = 0
-
 
 # find the absolute path to the audio file tick.wav.
 path = pathlib.Path(__file__).parent.resolve()

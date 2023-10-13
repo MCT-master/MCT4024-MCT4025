@@ -1,4 +1,4 @@
-#N canvas 339 46 1413 543 12;
+#N canvas 293 87 1452 699 12;
 #X msg 146 217 [;
 #X msg 37 216 ];
 #X obj 37 175 t b a b, f 16;
@@ -8,25 +8,15 @@
 1;
 #X msg 37 79 tick;
 #X obj 37 111 list prepend /py;
-#X obj 760 334 dac~;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array array1 4316 float 0;
 #X coords 0 1 4315 -1 300 100 1;
-#X restore 759 392 graph;
-#X obj 983 359 soundfiler;
-#X msg 983 325 read -resize ./tick.wav array1;
+#X restore 755 506 graph;
 #X obj 760 76 mrpeach/unpackOSC;
 #X text 756 12 receive OSC messages;
-#X obj 760 192 mrpeach/routeOSC /pd;
-#X obj 760 225 route tick;
-#X obj 983 295 loadbang;
-#X msg 799 260 bang;
-#X obj 760 295 tabplay~ array1;
-#X text 834 263 test the audio;
-#X obj 715 223 print;
 #X text 36 197 close bundle;
 #X text 141 197 open a bundle (and generate a timetag);
-#X obj 160 240 cnv 15 400 100 empty empty empty 20 12 0 14 -262130
+#X obj 159 239 cnv 15 580 120 empty empty empty 20 12 0 14 -262130
 -66577 0;
 #X msg 165 250 timetagoffset 0;
 #X msg 187 273 timetagoffset -1;
@@ -34,9 +24,9 @@
 #X text 308 273 immediate time tag (default);
 #X text 360 295 current time plus 1 second (delay is in microseconds)
 ;
-#X obj 752 104 cnv 15 600 80 empty empty empty 10 12 0 14 -262130 -66577
+#X obj 752 104 cnv 15 650 80 empty empty empty 10 12 0 14 -262130 -66577
 0;
-#X text 902 139 If the OSC packet has a timetag \, [pipelist] will
+#X text 889 145 If the OSC packet has a timetag \, [pipelist] will
 delay it until the time occurs;
 #X obj 760 148 mrpeach/pipelist, f 17;
 #X floatatom 886 108 10 0 0 1 - - -;
@@ -46,43 +36,63 @@ delay it until the time occurs;
 1 1;
 #X text 34 495 is connected:;
 #X msg 127 406 disconnect;
-#X text 259 433 connect to python server;
-#X msg 55 433 connect 193.157.182.176 8000;
-#X text 359 313 1million = 1sec \, 2million = 2sec etc..;
+#X text 223 434 connect to python server;
 #X obj 37 48 metro 500;
 #X text 64 12 Send a metronome puls to remote client;
 #X obj 760 42 mrpeach/udpreceive 8001;
-#X msg 210 296 timetagoffset 1e+007;
-#X text 961 105 second outlet is timetag offset in millieconds relative
-to receiver's clock.;
+#X obj 759 419 dac~;
+#X msg 780 259 bang;
+#X obj 759 290 tabplay~ array1;
+#X text 831 263 test the audio;
+#X obj 713 255 print;
+#X obj 802 348 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 760 376 *~ 0.4;
+#X text 798 324 volume;
+#X obj 951 423 soundfiler;
+#X msg 951 389 read -resize ./tick.wav array1;
+#X obj 951 320 loadbang;
+#X msg 971 347 \; pd dsp 1;
+#X text 753 472 load tick audio to local buffer;
+#X msg 55 433 connect 127.0.0.1 8000;
+#X obj 760 193 mrpeach/routeOSC /pd;
+#X obj 760 226 route tick;
+#X text 959 108 timetag offset in millieconds relative to receiver's
+clock.;
+#X msg 210 296 timetagoffset 1e+006;
+#X text 359 313 1million (1e+006) = 1sec 2million (2e+006) = 2sec etc..
+;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
 #X connect 2 1 3 0;
 #X connect 2 2 0 0;
-#X connect 3 0 34 0;
+#X connect 3 0 24 0;
 #X connect 4 0 2 0;
-#X connect 5 0 41 0;
+#X connect 5 0 29 0;
 #X connect 6 0 7 0;
 #X connect 7 0 4 0;
-#X connect 11 0 10 0;
-#X connect 12 0 31 0;
-#X connect 12 1 31 1;
-#X connect 12 1 32 0;
-#X connect 14 0 15 0;
-#X connect 14 0 20 0;
-#X connect 15 0 18 0;
-#X connect 16 0 11 0;
-#X connect 17 0 18 0;
-#X connect 18 0 8 0;
-#X connect 18 0 8 1;
-#X connect 24 0 3 0;
-#X connect 25 0 3 0;
-#X connect 31 0 14 0;
-#X connect 33 0 39 0;
-#X connect 34 0 35 0;
-#X connect 37 0 34 0;
-#X connect 39 0 34 0;
-#X connect 41 0 6 0;
-#X connect 43 0 12 0;
-#X connect 44 0 3 0;
+#X connect 9 0 21 0;
+#X connect 9 1 21 1;
+#X connect 9 1 22 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 21 0 46 0;
+#X connect 23 0 45 0;
+#X connect 24 0 25 0;
+#X connect 27 0 24 0;
+#X connect 29 0 6 0;
+#X connect 31 0 9 0;
+#X connect 33 0 34 0;
+#X connect 34 0 38 0;
+#X connect 37 0 38 1;
+#X connect 38 0 32 0;
+#X connect 38 0 32 1;
+#X connect 41 0 40 0;
+#X connect 42 0 41 0;
+#X connect 42 0 43 0;
+#X connect 45 0 24 0;
+#X connect 46 0 47 0;
+#X connect 46 0 36 0;
+#X connect 47 0 34 0;
+#X connect 49 0 3 0;

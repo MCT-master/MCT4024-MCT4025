@@ -1,4 +1,4 @@
-#N canvas 200 172 1126 526 12;
+#N canvas 898 175 1394 631 12;
 #X msg 146 254 [;
 #X msg 37 253 ];
 #X obj 37 212 t b a b, f 16;
@@ -11,33 +11,42 @@
 #X obj 490 166 route tick;
 #X text 36 234 close bundle;
 #X text 141 234 open a bundle;
-#X obj 437 195 cnv 15 500 300 empty empty empty 10 12 0 14 #fcfcc4 #404040 0;
-#X obj 491 291 dac~;
+#X obj 437 195 cnv 15 500 400 empty empty empty 10 12 0 14 -262130
+-66577 0;
+#X obj 489 372 dac~;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array array1 4316 float 0;
 #X coords 0 1 4315 -1 300 100 1;
-#X restore 490 372 graph;
-#X obj 722 338 soundfiler;
-#X msg 722 304 read -resize ./tick.wav array1;
-#X obj 722 274 loadbang;
-#X msg 530 217 bang;
-#X obj 491 252 tabplay~ array1;
-#X text 565 220 test the audio;
-#X obj 436 251 print;
-#X text 487 335 load tick audio to local buffer;
-#X obj 29 40 cnv 15 100 100 empty empty empty 10 12 0 14 #fcfcc4 #404040 0;
-#X obj 37 45 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X restore 488 446 graph;
+#X obj 701 365 soundfiler;
+#X msg 701 331 read -resize ./tick.wav array1;
+#X obj 701 262 loadbang;
+#X msg 510 212 bang;
+#X obj 489 243 tabplay~ array1;
+#X text 561 216 test the audio;
+#X obj 439 243 print;
+#X text 485 409 load tick audio to local buffer;
+#X obj 29 40 cnv 15 100 100 empty empty empty 10 12 0 14 -262130 -66577
+0;
+#X obj 37 45 tgl 19 0 empty empty empty 0 -10 0 12 -262144 -1 -1 0
+1;
 #X msg 37 107 tick;
 #X obj 56 359 loadbang;
 #X obj 37 419 mrpeach/udpsend;
-#X obj 131 448 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 142 446 tgl 19 0 empty empty empty 0 -10 0 12 -262144 -1 -1
+1 1;
 #X text 35 448 is connected:;
 #X msg 128 359 disconnect;
-#X text 260 386 connect to python server;
+#X text 223 386 connect to python server;
 #X obj 490 72 mrpeach/udpreceive 8001;
-#X msg 56 386 connect 193.157.182.176 8000;
 #X obj 37 76 metro 500;
 #X text 67 45 Send a metronome puls to remote client;
+#X msg 56 386 connect 127.0.0.1 8000;
+#X msg 721 289 \; pd dsp 1;
+#X obj 532 301 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X obj 490 329 *~ 0.4;
+#X text 528 277 volume;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
@@ -52,14 +61,17 @@
 #X connect 9 0 21 0;
 #X connect 16 0 15 0;
 #X connect 17 0 16 0;
+#X connect 17 0 36 0;
 #X connect 18 0 19 0;
-#X connect 19 0 13 0;
-#X connect 19 0 13 1;
-#X connect 24 0 34 0;
+#X connect 19 0 38 0;
+#X connect 24 0 33 0;
 #X connect 25 0 5 0;
-#X connect 26 0 33 0;
+#X connect 26 0 35 0;
 #X connect 27 0 28 0;
 #X connect 30 0 27 0;
 #X connect 32 0 6 0;
-#X connect 33 0 27 0;
-#X connect 34 0 25 0;
+#X connect 33 0 25 0;
+#X connect 35 0 27 0;
+#X connect 37 0 38 1;
+#X connect 38 0 13 0;
+#X connect 38 0 13 1;
