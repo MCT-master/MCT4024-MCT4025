@@ -23,16 +23,7 @@ serverIp = '127.0.0.1'  # local ip
 serverPort = 8000
 
 
-def oscHandler(address: str, *args: List[Any]) -> None:
-    # A dispatcher function that handles the OSC messages we recevie on our server
-    print(f'{address} {args}')
-
-
-# Setup different "routes" where we can map different functions to different OSC adressess received.
-dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/py*", oscHandler)
-
-
+# client (sender) code
 def startClient(ip, port):
     # create a simple OSC client
     client = udp_client.UDPClient(ip, port)
@@ -74,6 +65,16 @@ def sendMessages(client):
 
     print("done sending.")
 
+# server (receiving) code
+def oscHandler(address: str, *args: List[Any]) -> None:
+    # A dispatcher function that handles the OSC messages we recevie on our server
+    print(f'{address} {args}')
+
+
+# Setup different "routes" where we can map different functions to different OSC adressess received.
+dispatcher = dispatcher.Dispatcher()
+dispatcher.map("/py*", oscHandler)
+
 
 def startServer(ip, port):
     # receive messages from clients (with "/py as OSC address").
@@ -87,6 +88,6 @@ def startServer(ip, port):
     thread.start()
 
 
-# run our code.
+# run our code
 startServer(serverIp, serverPort)
 startClient(clientIp, clientPort)

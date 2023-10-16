@@ -28,19 +28,7 @@ path = pathlib.Path(__file__).parent.resolve()
 audio = "tick.wav"
 
 
-def oscHandler(address: str, *args: List[Any]) -> None:
-    # A dispatcher function that handles the OSC messages we recevie on our server
-    print(f'{args[0]}')
-
-    # play the tick audio file from the root dir
-    playsound(f'{path}/{audio}')
-
-
-# Setup different "routes" where we can map different functions to different OSC adressess received.
-dispatcher = dispatcher.Dispatcher()
-dispatcher.map("/py*", oscHandler)
-
-
+# client (sender) code
 def startClient(ip, port):
     # create a simple OSC client
     client = udp_client.SimpleUDPClient(ip, port)
@@ -81,6 +69,20 @@ def sendMessages(client):
         time.sleep(.5)
 
     print("done sending.")
+
+
+# server (sender) code
+def oscHandler(address: str, *args: List[Any]) -> None:
+    # A dispatcher function that handles the OSC messages we recevie on our server
+    print(f'{args[0]}')
+
+    # play the tick audio file from the root dir
+    playsound(f'{path}/{audio}')
+
+
+# Setup different "routes" where we can map different functions to different OSC adressess received.
+dispatcher = dispatcher.Dispatcher()
+dispatcher.map("/py*", oscHandler)
 
 
 def startServer(ip, port):
