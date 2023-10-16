@@ -1,8 +1,8 @@
 # Networked Device Control and Synchronization With OSC
 
-Today we will continue to explore tools and practices for synchronous online musical collaboration. This workshop is about symbolic representations of music and how it can be used to control musical systems from afar. We will learn how to use the OSC protocol and its unique timing and clock abilities to synchronize audio playback in two places at once. However, since we cannot physically be in two places at once today, the workshop covers OSC transmission between two different programming environments on our local machine instead, namely between Pure Data (PD) and Python. 
+Today we will continue to explore tools and practices for synchronous online musical collaboration. This workshop is about symbolic representations of music and how they can be used to mitigate latency to control musical systems from afar. We will learn how to use the OSC protocol and its unique timing abilities to synchronize audio playback in two places at once. However, since we cannot physically be in two places at once today, the workshop covers OSC transmission between two different programming environments on our local machine instead, namely between Pure Data (PD) and Python. The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration. 
 
-The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration.
+In class, we will explore 3 example systems together, of increasing complexity, that demonstrate how we can start to build complex networked audio systems using OSC. With each example, an activity follows for the workshop participants. 
 
 ## Preperation
 
@@ -23,10 +23,6 @@ Andrew Schmeder. (2010). Best Practices for Open Sound Control. Center for New M
   - **It's important** that you have the 32-bit version of Pure Data vanilla.
   - Download the [mrpeach](https://github.com/pd-externals/mrpeach) library
 - [Wireshark](https://www.wireshark.org/download.html)
-
-# Workshop
-
-In the workshop, we will explore 3 example systems. The examples show how we can start building complex OSC audio communication systems that use timetags to mitigate latency and achieve higher precision. The repo has 3 examples, each consisting of PD and Python files. In class, we will go through each example and do some activities together.
 
 ## Example 1 - Simple p2p Connection
 
