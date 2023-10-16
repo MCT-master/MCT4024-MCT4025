@@ -1,8 +1,8 @@
 # Networked Device Control and Synchronization With OSC
 
-Today we will continue to explore tools and practices for synchronous online musical collaboration. This workshop is about symbolic representations of music and how they can be used to mitigate latency to control musical systems from afar. We will learn how to use the OSC protocol and its unique timing abilities to synchronize audio playback in two places at once. However, since we cannot physically be in two places at once today, the workshop covers OSC transmission between two different programming environments on our local machine instead, namely between Pure Data (PD) and Python. The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration. 
+Today we will learn about the OSC protocol and how symbolic music data can be used to mitigate latency and control musical systems from afar. Specifically, the workshop concentrates on how we can use OSC timetags to synchronize audio playback in two remote places at once. However, since each workshop participant cannot physically be in two places at once, we will instead explore OSC transmission between two different programming environments on our local machine, namely between Pure Data (PD) and Python. The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration. 
 
-In class, we will explore 3 example systems together, of increasing complexity, that demonstrate how we can start to build complex networked audio systems using OSC. With each example, an activity follows for the workshop participants. 
+In class, we will explore 3 example systems together, of increasing complexity, that demonstrate how you can start to build complex networked audio systems using OSC. With each example, an activity follows for the workshop participants. 
 
 ## Preperation
 
