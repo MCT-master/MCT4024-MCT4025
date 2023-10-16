@@ -1,11 +1,11 @@
-import time
-import threading
 from pythonosc import osc_bundle_builder
 from pythonosc import osc_message_builder
 from pythonosc import udp_client
 from pythonosc import dispatcher
 from pythonosc import osc_server
 from typing import List, Any
+import threading
+import time
 import pathlib
 from playsound import playsound
 
@@ -23,7 +23,7 @@ serverIp = '127.0.0.1'  # local ip
 serverPort = 8000
 
 
-# find the absolute path to the audio file tick.wav.
+# find the absolute path to the audio file "tick.wav" in our parent directory.
 path = pathlib.Path(__file__).parent.resolve()
 audio = "tick.wav"
 
@@ -97,6 +97,6 @@ def startServer(ip, port):
     thread.start()
 
 
-# run our code.
+# run our code
 startServer(serverIp, serverPort)
 startClient(clientIp, clientPort)

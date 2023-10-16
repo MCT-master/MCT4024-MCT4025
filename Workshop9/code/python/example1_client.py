@@ -16,10 +16,10 @@ docs:
 https://python-osc.readthedocs.io/en/latest/server.html#threading-server 
 """
 
-clientIp = '127.0.0.1'  # remote ip
+clientIp = '127.0.0.1' # remote ip
 clientPort = 8001
 
-serverIp = '127.0.0.1'  # local ip
+serverIp = '127.0.0.1' # local ip
 serverPort = 8000
 
 

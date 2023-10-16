@@ -1,4 +1,4 @@
-#N canvas 1124 213 814 407 12;
+#N canvas 568 200 814 407 12;
 #X msg 146 181 [;
 #X msg 37 180 ];
 #X text 36 160 close bundle;
@@ -6,7 +6,7 @@
 #X obj 37 102 list trim;
 #X text 564 91 unpack the OSC formatted message;
 #X text 577 123 route the desired OSC address;
-#X text 297 274 connect to python server;
+#X text 252 273 connect to python server;
 #X obj 37 71 list prepend /py;
 #X msg 37 27 Hello from PD client!;
 #X obj 79 246 loadbang;
@@ -20,7 +20,7 @@
 #X msg 149 244 disconnect;
 #X obj 431 123 mrpeach/routeOSC /pd;
 #X obj 431 55 mrpeach/udpreceive 8001;
-#X msg 80 271 connect 127.0.0.1 8000;
+#X msg 81 271 connect 127.0.0.1 8000;
 #X connect 0 0 14 0;
 #X connect 1 0 14 0;
 #X connect 3 0 1 0;
