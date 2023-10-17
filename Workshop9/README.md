@@ -1,6 +1,8 @@
 # Networked Device Control and Synchronization With OSC
 
-Today we will learn about the OSC protocol and how symbolic music data can be used to mitigate latency and control musical systems from afar. Specifically, the workshop concentrates on how we can use OSC timetags to synchronize audio playback in two remote places at once. However, since each workshop participant cannot physically be in two places at once, we will instead explore OSC transmission between two different programming environments on our local machine, namely between Pure Data (PD) and Python. The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration. 
+**NB!** This workshop requires an intermediate level of familiarity with OSC programming for Python and Pure Data.
+
+Today we will learn more about OSC and how symbolic music data can be used to mitigate latency and control musical systems from afar. Specifically, the workshop concentrates on how we can use OSC timetags to synchronize audio playback in two remote places at once. However, since each workshop participant cannot physically be in two places at once, we will instead explore OSC transmission between two different programming environments on our local machine, namely between Pure Data (PD) and Python. The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration. 
 
 In class, we will explore 3 example systems together, of increasing complexity, that demonstrate how you can start to build complex networked audio systems using OSC. With each example, an activity follows for the workshop participants. 
 
@@ -48,9 +50,7 @@ The first example demonstrates a simple 2-way OSC communication between Python a
 **Workshop Activity**
 
 1. Test and explore the example on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Test and play around with the example on the Lola network, MCT Wi-Fi, or eduroam in pairs.
-
-Available ports will depend on the connection you are using. However, if both machines are on the Lola network, you can use any port to connect. This is also true for localhost connections.
+2. Test and play around with the example on a Wi-Fi or wired network in pairs.
 
 ## Example 2 - Networked Controlled Metronome
 
@@ -64,8 +64,6 @@ Available ports will depend on the connection you are using. However, if both ma
 **What**
 
 The second example demonstrates how we can begin to control and synchronize audio over the network using OSC. Both programs (PD and Python) will play an audio file upon receiving a "tick" message from a client. The "tick" OSC messages are sent from the clients at regular intervals creating a simple metronome.
-
-Most likely, you will notice that the stability of the networked controlled metronome is quite bad, with periodic dropouts due to network jitter and latency. This will especially be true if you connect using WiFi, such as Eduroam or the MCT personal local WiFi.
 
 <p align="left">
  <img src="./fig/example2.jpg" height=300>
@@ -83,7 +81,9 @@ Most likely, you will notice that the stability of the networked controlled metr
 (same as example 1)
 
 1. Test and explore the example on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Test and play around with the example on the Lola network, MCT Wi-Fi, or eduroam in pairs.
+2. Test and play around with the example on a Wi-Fi or wired network in pairs.
+
+Most likely, you will notice that controlling the metronome over Wi-Fi is quite unstable, with periodic dropouts due to network jitter and latency.
 
 ## Example 3 - Realtime Synchronization With OSC Timetags
 
@@ -98,8 +98,6 @@ Most likely, you will notice that the stability of the networked controlled metr
 **What**
 
 The third example demonstrates how we can use OSC timetags to improve synchronization and real-time musical performance over a network. The code is similar to the metronome control system introduced in example 2 but adds the option to adjust the timetags associated with each OSC packet.
-
-By increasing the timetag offset a few seconds, you should experience the metronome to be more stable and resilient.
 
 <p align="left">
  <img src="./fig/example3.jpg" height=300>
