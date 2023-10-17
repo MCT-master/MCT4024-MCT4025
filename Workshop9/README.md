@@ -42,13 +42,13 @@ The first example demonstrates a simple 2-way OSC communication between Python a
 **How to run**
 
 1. Open the Python and Pure Data examples and fill in the correct IP and port settings.
-2. Turn off any Firewall on your machine.
+2. Turn off any firewall on your machine, if you can. 
 3. Execute the _example1_client.py_ Python file.
 
 **Workshop Activity**
 
-1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Test and play around with the example on the Lola network in pairs.
+1. Test and explore the example on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
+2. Test and play around with the example on the Lola network, MCT Wi-Fi, or eduroam in pairs.
 
 Available ports will depend on the connection you are using. However, if both machines are on the Lola network, you can use any port to connect. This is also true for localhost connections.
 
@@ -74,7 +74,7 @@ Most likely, you will notice that the stability of the networked controlled metr
 **How to run**
 
 1. Open the Python and Pure Data examples and fill in the correct IP and port settings.
-2. Turn off any Firewall on your machine.
+2. Turn off any firewall on your machine, if you can. 
 3. Execute the _example2_client.py_ Python file. This will start sending "tick" messages to PD continuously, every half second.
 4. Turn on the metronome in the PD example to send the other way.
 
@@ -82,8 +82,8 @@ Most likely, you will notice that the stability of the networked controlled metr
 
 (same as example 1)
 
-1. Test and explore the connection on your local machine between PD and Python. Use "localhost" or "127.0.0.1" as your client and server IPs.
-2. Test and play around with the example on the Lola network in pairs.
+1. Test and explore the example on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
+2. Test and play around with the example on the Lola network, MCT Wi-Fi, or eduroam in pairs.
 
 ## Example 3 - Realtime Synchronization With OSC Timetags
 
@@ -110,7 +110,7 @@ The OSC timetags are essentially NTP timestamps; a 64-bit fixed floating point n
 **How to run**
 
 1. Open the Python and Pure Data examples and fill in the correct IP and port settings.
-2. Turn off any Firewall on your machine.
+2. Turn off any firewall on your machine, if you can.
 3. Before executing the _example3_client.py_ Python file, edit the timetagOffset variable to control how many seconds to offset the timestamp added to each outgoing OSC message.
 4. Monitor the difference between the current timestamp and the sending timestamp from the second outlet of the [mrpeach/unpackOSC] object in Pure Data, _example3_client.pd_.
 5. Start the metronome in _example3_client.pd_ and send timetagOffset messages to the [mrpeach/packOSC] object to manipulate the timetags. Fortunately, python-osc will automatically delay messages that contain timetags for future execution. Therefore, we don't have to code this feature explicitly in Python.
@@ -119,9 +119,9 @@ To monitor and see how I get the UTC time since the epoch, check out and run the
 
 **Activity**
 
-1. Test and play around with example3 on the Lola network in pairs.
+1. Test and explore the example on your local machine. Use "localhost" or "127.0.0.1" as your client and server IPs.
 
-By offsetting/forwarding the OSC timestamp, you should experience that your signal is more stable and resilient to jitter. According to Schmeder et.al, we can use something called Forward Synchronization to remove jitter and synchronize two machines if the clock sync error between our two machines is smaller than the average transport jitter.
+By offsetting/forwarding the OSC timestamp, you should experience that your signal is more stable and resilient to jitter. According to Schmeder et.al, we can use something called Forward Synchronization to remove jitter and better synchronize two machines if the clock sync error is smaller than the average transport jitter.
 
 2. Try to recreate the Forward Synchronization method detailed in the literature and diagram below. Also, make the clock signal control something more interesting than a simple metronome.
 
