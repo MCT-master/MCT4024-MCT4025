@@ -1,4 +1,4 @@
-# Networked Device Control and Synchronization With OSC
+# Device Control and Networked Synchronization With OSC
 
 In this workshop, you will learn about the OSC protocol and how symbolic music data can be used to mitigate latency and control musical systems from afar. Specifically, the session concentrates on how we can use OSC timestamps to synchronize audio playback in two remote places at once. Also, since we ourselves cannot physically be in two places at once, we will explore OSC transmission between two different programming environments on our local machine, namely between Pure Data (PD) and Python. The goal is to learn more about how to set up and configure advanced technologies for networked music systems and synchronous online musical collaboration.
 
