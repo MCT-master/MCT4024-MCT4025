@@ -1,0 +1,44 @@
+<!-- example 5: FM-synth in the browser! -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>My Second WebPD Page!</h1>
+    <button id="start">Start</button>
+    <div id="loading">Loading ...</div>
+    <div id="slider-group">
+      <p>Carrier frequency (50 - 440 hz):</p>
+      <input type="range" value="300" min="50" max="440" id="carrierFreq" />
+    </div>
+    <div id="slider-group">
+      <p>Modulation frequency (0 - 500 hz):</p>
+      <input type="range" min="0" value="70" max="500" id="modFreq" />
+    </div>
+    <div id="slider-group">
+      <p>Modulation depth (0 - 10 hz):</p>
+      <input type="range" value="1" min="0" max="10" id="modDepth" />
+    </div>
+    <div id="slider-group">
+      <p>Main volume:</p>
+      <input type="range" value="0" min="0" max="100" id="volume" />
+    </div>
+    <button id="noteTrigger">Note trigger</button>
+  </body>
+  <!-- import the webPD library -->
+  <script src="webpd-runtime.js"></script>
+  <!-- init audio context and define a method to send stuff to your PD patch -->
+  <script src="initWebPD.js"></script>
+  <!-- Our own JS content -->
+  <script src="index.js"></script>
+</html>
+
+<!-- 
+  Activity: Build your own Pure Data audio system and upload to the browser using WebPD.
+  The system must have at least 3-4 parameters and be unique from each other. 
+-->

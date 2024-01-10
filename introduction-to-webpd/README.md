@@ -19,16 +19,16 @@ In class, we will explore examples together, with increasing complexity, that de
 - A Chromium-based browser (Chrome, Brave, Vivaldi, etc.)
 - Pure Data vanilla
 
-## Resources
-
-- [How To Add CSS](https://www.w3schools.com/CSS/css_howto.asp)
-- [w3school](https://www.w3schools.com/)
-- [Mozilla Developers](https://developer.mozilla.org/en-US/)
-- []()
-
-# WebPD Overview and Workflow
+## Our WebPD Workflow
 
 <p align="left">
  <img src="./fig/webpd-workflow-1.jpg" width=600>
  <img src="./fig/webpd-workflow-2.jpg" width=600>
 </p>
+
+## Resources
+
+- [How To Add CSS to your page](https://www.w3schools.com/CSS/css_howto.asp)
+- [w3school of coding](https://www.w3schools.com/)
+- [Mozilla Developers HTML docs](https://developer.mozilla.org/en-US/)
+- []()

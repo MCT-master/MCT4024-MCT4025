@@ -17,21 +17,24 @@
       <input type="range" min="1" max="100" id="myRange" />
     </div>
   </body>
-  <!-- Our own JS content -->
-  <script src="index.js"></script>
   <!-- import the webPD library -->
   <script src="webpd-runtime.js"></script>
-  <!-- init audio context and send stuff to your PD patch -->
+  <!-- init audio context and define a method to send stuff to your PD patch -->
   <script src="initWebPD.js"></script>
+  <!-- Our own JS content -->
+  <script src="index.js"></script>
 </html>
 
 <!-- 
   WebPD docs : https://github.com/sebpiq/WebPd?tab=readme-ov-file 
 
-  workflow:
+  workflow: (see README.md)
   1. build a pure data patch
   2. upload to WebPD online compiler: https://sebpiq.github.io/WebPd_website/?target=app&build=1 
   3. download the contets. 
   4. Replace the "patch.js" in this folder with your new downloaded "patch.js"
   5. Take note of the PD parameters (nodeID, portletID, message) you want to control inside the new downloaded "index.html"
+
+  Activity: Explore the patch, and make a new one with one added parameter! 
+
 -->
