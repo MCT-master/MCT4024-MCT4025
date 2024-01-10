@@ -29,9 +29,6 @@ In class, we will explore examples together, with increasing complexity, that de
 # WebPD Overview and Workflow
 
 <p align="left">
- <img src="./fig/webpd-overview-1.jpg" width=500>
-</p>
-
-<p align="left">
- <img src="./fig/webpd-overview-2.jpg" width=500>
+ <img src="./fig/webpd-workflow-1.jpg" width=600>
+ <img src="./fig/webpd-workflow-2.jpg" width=600>
 </p>
