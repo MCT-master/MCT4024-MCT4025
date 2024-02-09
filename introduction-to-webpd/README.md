@@ -21,6 +21,15 @@ In class, we will explore examples together, with increasing complexity, that de
 
 ## Our WebPD Workflow
 
+Basic workflow:
+
+1. Build a pure data patch
+2. Upload to WebPD online compiler: https://sebpiq.github.io/WebPd_website/?target=app&build=1
+3. download the contets.
+4. If you have downloaded contents from before, replace the "patch.js" in this folder with your new downloaded "patch.js"
+5. Take note of the PD parameters (nodeID, portletID, message) inside the "index.html".
+6. Add your custom javaScript in the "index.js" file.
+
 <p align="left">
  <img src="./fig/webpd-workflow-1.jpg" width=600>
  <img src="./fig/webpd-workflow-2.jpg" width=600>
@@ -31,4 +40,4 @@ In class, we will explore examples together, with increasing complexity, that de
 - [How To Add CSS to your page](https://www.w3schools.com/CSS/css_howto.asp)
 - [w3school of coding](https://www.w3schools.com/)
 - [Mozilla Developers HTML docs](https://developer.mozilla.org/en-US/)
-- []()
+- WebPD docs : https://github.com/sebpiq/WebPd?tab=readme-ov-file
