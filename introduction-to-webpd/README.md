@@ -23,8 +23,8 @@ In class, we will explore examples together, with increasing complexity, that de
 
 Basic workflow:
 
-1. Build a pure data patch
-2. Upload to WebPD online compiler: https://sebpiq.github.io/WebPd_website/?target=app&build=1
+1. Build a pure data patch.
+2. Upload to WebPD online compiler.
 3. Download the contents.
 4. Build UI Elements in the "index.html" file.
 5. Take note of the PD parameters (nodeID, portletID, message) at the bottom of the "index.html".
@@ -36,8 +36,8 @@ Basic workflow:
 
 However, you might want to change something in the PD patch without having to rebuild all the HTML and javascript from scratch every time. For this, I recommend the following workflow to update an existing project:
 
-1. Update your pure data patch
-2. Upload to WebPD online compiler: https://sebpiq.github.io/WebPd_website/?target=app&build=1
+1. Update your pure data patch.
+2. Upload to WebPD online compiler.
 3. Download the contents.
 4. Replace the existing "patch.js" with the new "patch.js".
 5. Only take note of the new PD parameters (nodeID, portletID, message) at the bottom of the new "index.html".
