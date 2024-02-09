@@ -25,14 +25,26 @@ Basic workflow:
 
 1. Build a pure data patch
 2. Upload to WebPD online compiler: https://sebpiq.github.io/WebPd_website/?target=app&build=1
-3. download the contets.
-4. If you have downloaded contents from before, replace the "patch.js" in this folder with your new downloaded "patch.js"
-5. Take note of the PD parameters (nodeID, portletID, message) inside the "index.html".
-6. Add your custom javaScript in the "index.js" file.
+3. Download the contents.
+4. Build UI Elements in the "index.html" file.
+5. Take note of the PD parameters (nodeID, portletID, message) at the bottom of the "index.html".
+6. Add a custom javaScript file called "index.js". Use the PD parameters and UI elements to send message to the PD patch.
 
 <p align="left">
  <img src="./fig/webpd-workflow-1.jpg" width=600>
- <img src="./fig/webpd-workflow-2.jpg" width=600>
+</p>
+
+However, you might want to change something in the PD patch without having to rebuild all the HTML and javascript from scratch every time. For this, I recommend the following workflow to update an existing project:
+
+1. Update your pure data patch
+2. Upload to WebPD online compiler: https://sebpiq.github.io/WebPd_website/?target=app&build=1
+3. Download the contents.
+4. Replace the existing "patch.js" with the new "patch.js".
+5. Only take note of the new PD parameters (nodeID, portletID, message) at the bottom of the new "index.html".
+6. Update your existing "index.js" with the new parameters and bevahiour etc.
+
+<p align="left">
+    <img src="./fig/webpd-workflow-2.jpg" width=600>
 </p>
 
 ## Resources
