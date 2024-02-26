@@ -1,0 +1,29 @@
+<!-- HTML, JS, CSS -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="myid2">Hey man</p>
+    <p id="myid">Contents!</p>
+    <input id="myrange" type="range" />
+  </body>
+  <script>
+    let myContent = document.getElementById("myid");
+    let myRange = document.getElementById("myrange");
+
+    // accessing the content
+    myContent.innerHTML = "something has changed";
+    console.log(myRange.value);
+  </script>
+  <style>
+    /* styling */
+    #myid {
+      color: blue;
+    }
+  </style>
+</html>

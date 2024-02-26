@@ -4,6 +4,15 @@ const modDepth = document.querySelector("#modDepth");
 const volume = document.querySelector("#volume");
 const noteTrigger = document.querySelector("#noteTrigger");
 
+const check = document.getElementById("myCheck");
+
+check.oninput = function (e) {
+  if (e.target.checked) {
+    // do something when checked
+    // send message to webPD
+  }
+};
+
 carrierFreqNodeID = "n_0_2";
 modFreqNodeID = "n_0_5";
 modDepthNodeID = "n_0_7";

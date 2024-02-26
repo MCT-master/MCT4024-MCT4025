@@ -1,4 +1,4 @@
-const myRange = document.querySelector("#myRange");
+const myRange = document.getElementById("myRange");
 
 // use function sendMsgToWebPd() to send messages to your PD patch!
 

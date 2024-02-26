@@ -5,5 +5,10 @@ const nyNumb1 = document.getElementById("nyNumb1");
 
 // access the onclick parameter on the object, and tell it what to do when the object is clicked.
 myBtn.onclick = function () {
-  hey.innerHTML = nyNumb1.value;
+  let value = nyNumb1.value;
+  hey.innerHTML = value;
 };
+
+function addNumber(first, second) {
+  return first + second;
+}

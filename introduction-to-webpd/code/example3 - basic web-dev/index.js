@@ -1,13 +1,35 @@
 // get the elements I defined in the HTML
-const hey = document.getElementById("hey");
-const myBtn = document.getElementById("myBtn");
-const nyNumb1 = document.getElementById("nyNumb1");
-const nyNumb2 = document.getElementById("nyNumb2");
+const text = document.getElementById("text");
+const myNumb1 = document.getElementById("myNumb1");
+const myNumb2 = document.getElementById("myNumb2");
+const plussBtn = document.getElementById("plussBtn");
+const minusBtn = document.getElementById("minusBtn");
+const timesBtn = document.getElementById("timesBtn");
+const divideBtn = document.getElementById("divideBtn");
+const resetBtn = document.getElementById("resetBtn");
 
-myBtn.onclick = function () {
-  let val1 = nyNumb1.value;
-  let val2 = nyNumb2.value;
+const times = (first, second) => Number(first) * Number(second);
+const divide = (first, second) => Number(first) / Number(second);
+const pluss = (first, second) => Number(first) + Number(second);
+const minus = (first, second) => Number(first) - Number(second);
 
-  // since the .value of the objects are of type String, I need to convert them to numbers before adding them
-  hey.innerHTML = Number(val1) + Number(val2);
+plussBtn.onclick = () => {
+  text.innerHTML = pluss(myNumb1.value, myNumb2.value);
+};
+
+minusBtn.onclick = () => {
+  text.innerHTML = minus(myNumb1.value, myNumb2.value);
+};
+
+divideBtn.onclick = () => {
+  text.innerHTML = divide(myNumb1.value, myNumb2.value);
+};
+
+timesBtn.onclick = () => {
+  text.innerHTML = times(myNumb1.value, myNumb2.value);
+};
+
+resetBtn.onclick = () => {
+  myNumb1.value = "";
+  myNumb2.value = "";
 };
