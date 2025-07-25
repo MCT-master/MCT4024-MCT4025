@@ -1,4 +1,4 @@
-# MCT4024
+# MCT4024-MCT4025
 
 This repository contains code for [MCT4024 - Networked Music Performance Technologies 1](https://www.uio.no/studier/emner/hf/imv/MCT4024/index.html) and [MCT4025 - Networked Music Performance Technologies 2](https://www.uio.no/studier/emner/hf/imv/MCT4025/index.html). 
 
